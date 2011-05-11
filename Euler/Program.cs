@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Euler {
 	class Program {
-		static readonly List<long> Primes = new List<long>{2};
-		static readonly List<long> SievePrimes = new List<long> {  };
+		static readonly List<long> Primes = new List<long> { 2 };
+		static readonly List<long> SievePrimes = new List<long> { };
 		static void Main(string[] args) {
 			DateTime start = DateTime.Now;
-			DoProblem12();			
+			DoProblem13();
 			var elapsed = DateTime.Now - start;
 			Console.WriteLine(String.Format("{0}.{1}.{2}", elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds));
 			Console.ReadLine();
@@ -23,16 +23,16 @@ namespace Euler {
 
 		static long SumThreeAndFiveMultiplesBelow1000(int limit) {
 			int count = 0;
-			for (int i = 3; i < 1000; i+=3) {
+			for (int i = 3; i < 1000; i += 3) {
 				count += i;
 			}
-			for (int i = 5; i < limit; i+=5) {
-				count += (i%3 == 0) ? 0 : i;
+			for (int i = 5; i < limit; i += 5) {
+				count += (i % 3 == 0) ? 0 : i;
 			}
 			return count;
 		}
 		#endregion
-		
+
 		#region Problem 2 Sum Even Fibonacci Numbers less than 4000000
 		static void DoProblem2() {
 			//4613732
@@ -44,7 +44,7 @@ namespace Euler {
 			long fibCur = 1;
 			long fibPrev = 1;
 
-			while (fibCur<limit) {
+			while (fibCur < limit) {
 				if (fibCur % 2 == 0)
 					fibSum += fibCur;
 				long temp = fibCur;
@@ -66,7 +66,7 @@ namespace Euler {
 
 		static readonly Dictionary<long, int> PrimeFactors = new Dictionary<long, int>();
 		private static long FindLargestPrimeFactor(long composite) {
-			FactorComposite(composite, PrimeFactors);			
+			FactorComposite(composite, PrimeFactors);
 			return PrimeFactors.Keys.Max();
 		}
 
@@ -90,19 +90,19 @@ namespace Euler {
 				primeFactors.Add(primeFactor, 1);
 		}
 		private static void AddToPrimeFactors(Dictionary<long, int> primeFactors, Dictionary<long, int> tempPrimeFactors) {
-			foreach(KeyValuePair<long, int> tempPrimeFactorsKVP in tempPrimeFactors) {
+			foreach (KeyValuePair<long, int> tempPrimeFactorsKVP in tempPrimeFactors) {
 				if (primeFactors.ContainsKey(tempPrimeFactorsKVP.Key)) {
-					if(primeFactors[tempPrimeFactorsKVP.Key] < tempPrimeFactorsKVP.Value)
+					if (primeFactors[tempPrimeFactorsKVP.Key] < tempPrimeFactorsKVP.Value)
 						primeFactors[tempPrimeFactorsKVP.Key] = tempPrimeFactorsKVP.Value;
-				}					
+				}
 				else
 					primeFactors.Add(tempPrimeFactorsKVP.Key, tempPrimeFactorsKVP.Value);
 			}
-			
+
 		}
 		#endregion
 
-		#region Problem 4 Largest Palindrome that is a Composite of Two Three Digit Numbers	
+		#region Problem 4 Largest Palindrome that is a Composite of Two Three Digit Numbers
 		//3
 		//906609
 		static readonly List<long> palidromes = new List<long>();
@@ -111,10 +111,10 @@ namespace Euler {
 		}
 
 		static long FindLargestPalindromeCompositeOfTwoThreeDigitNumbers(int compositeDigitLength) {
-			for (var i = (long)Math.Pow(10, compositeDigitLength)- 1; i > (long)Math.Pow(10, compositeDigitLength-1); i--) {
-				for (var j = (long)Math.Pow(10, compositeDigitLength) - 1; j > (long)Math.Pow(10, compositeDigitLength-1); j--) {
+			for (var i = (long)Math.Pow(10, compositeDigitLength) - 1; i > (long)Math.Pow(10, compositeDigitLength - 1); i--) {
+				for (var j = (long)Math.Pow(10, compositeDigitLength) - 1; j > (long)Math.Pow(10, compositeDigitLength - 1); j--) {
 					if (IsPalidrome(i * j))
-						palidromes.Add(i*j);
+						palidromes.Add(i * j);
 				}
 			}
 			return palidromes.Max();
@@ -122,7 +122,7 @@ namespace Euler {
 
 		static bool IsPalidrome(long palidrome) {
 			string palidromeString = palidrome.ToString();
-			for (int i = 0; i < palidromeString.Length/2; i++) {
+			for (int i = 0; i < palidromeString.Length / 2; i++) {
 				if (palidromeString[i] != palidromeString[palidromeString.Length - 1 - i])
 					return false;
 			}
@@ -139,8 +139,8 @@ namespace Euler {
 
 		static long FindSmallestNumberDivisibleByFirstXIntegers(int limit) {
 			for (int i = 2; i <= limit; i++) {
-				if(IsPrime(i))
-					AddToPrimeFactors(i,PrimeFactors);
+				if (IsPrime(i))
+					AddToPrimeFactors(i, PrimeFactors);
 				else {
 					var tempPrimeFactors = new Dictionary<long, int>();
 					FactorComposite(i, tempPrimeFactors);
@@ -175,7 +175,7 @@ namespace Euler {
 				sigma_XSquared += (long)Math.Pow(i, 2);
 				sigmaX += i;
 			}
-			return ((long) Math.Pow(sigmaX, 2)) - sigma_XSquared;
+			return ((long)Math.Pow(sigmaX, 2)) - sigma_XSquared;
 		}
 
 		#endregion
@@ -192,10 +192,10 @@ namespace Euler {
 			if (prime == 2) return true;
 			if (Primes.Contains(prime)) return true;
 
-			foreach(var item in Primes) {
+			foreach (var item in Primes) {
 				if (prime % item == 0) return false;
 			}
-			Primes.Add(prime);					
+			Primes.Add(prime);
 			return true;
 		}
 
@@ -203,14 +203,14 @@ namespace Euler {
 			if (index == 1) return 2;
 			var primeCount = 1;
 			long primeTest = 1;
-			while (primeCount!=index) {
+			while (primeCount != index) {
 				primeTest += 2;
 				if (IsPrime(primeTest))
-					primeCount++;				
+					primeCount++;
 			}
 			return primeTest;
 		}
-		#endregion		
+		#endregion
 
 		#region 8 Greatest product of consecutive digits
 		static void DoProblem8() {
@@ -282,20 +282,20 @@ namespace Euler {
 		}
 
 		private static long SumPrimeNumbers(int upperLimit) {
-			SetupSievePrimes(upperLimit);			
+			SetupSievePrimes(upperLimit);
 			return SievePrimes.Sum();
 		}
 
 		private static void SetupSievePrimes(int upperLimit) {
 			SievePrimes.Add(2);
-			for (int i = 3; i < upperLimit; i+=2) {
+			for (int i = 3; i < upperLimit; i += 2) {
 				SievePrimes.Add(i);
 			}
 
 			var index = 1;
 			while (index < SievePrimes.Count && SievePrimes[index] <= upperLimit) {
 				var temp = SievePrimes[index];
-				SievePrimes.RemoveAll(item => item != temp && item%temp == 0);
+				SievePrimes.RemoveAll(item => item != temp && item % temp == 0);
 				index++;
 			}
 
@@ -340,12 +340,10 @@ namespace Euler {
 			Console.WriteLine(String.Format("{0}", GreatestProductOfXConsecutiveNumbersInAMatrix(productArray, 4)));
 		}
 
-		private static long GreatestProductOfXConsecutiveNumbersInAMatrix(int[][] matrix, int consecutiveCount)
-		{
+		private static long GreatestProductOfXConsecutiveNumbersInAMatrix(int[][] matrix, int consecutiveCount) {
 			var max = 0;
 			for (int row = 0; row < matrix.Length; row++) {
-				for (int column = 0; column < matrix[row].Length; column++)
-				{
+				for (int column = 0; column < matrix[row].Length; column++) {
 					int temp;
 					if (TestVerticalDownExists(row, matrix.Length, consecutiveCount)) {
 						temp = ProductVertical(matrix, row, column, consecutiveCount);
@@ -398,8 +396,7 @@ namespace Euler {
 			}
 			return tempProduct;
 		}
-		static int ProductHorizontal(int[][] matrix, int rowIndex, int columnIndex, int consecutiveCount)
-		{
+		static int ProductHorizontal(int[][] matrix, int rowIndex, int columnIndex, int consecutiveCount) {
 			var tempProduct = 1;
 			for (int i = 0; i < consecutiveCount; i++) {
 				tempProduct *= matrix[rowIndex][columnIndex + i];
@@ -454,19 +451,157 @@ namespace Euler {
 
 		static IEnumerable<long> GetDivisors(long triangleNumber) {
 			var upperLimit = triangleNumber;
-			var divisors = new List<long>();			
-						
+			var divisors = new List<long>();
+
 			for (var i = 1; i <= upperLimit; i++) {
-				if (triangleNumber%i != 0) continue;
+				if (triangleNumber % i != 0) continue;
 				divisors.Add(i);
 				var tempUpperLimit = triangleNumber / i;
-				if(tempUpperLimit>i)
-					divisors.Add(triangleNumber/i);
-				upperLimit = tempUpperLimit-1;
+				if (tempUpperLimit > i)
+					divisors.Add(triangleNumber / i);
+				upperLimit = tempUpperLimit - 1;
 			}
 			return divisors;
 		}
 
 		#endregion
-	}	
+
+		#region 13 First 10 Digits of Sum of 100 50 digit numbers
+		#region 13 Fields
+		const int testSubStringCount = 2;
+		static List<string> testNumbers = new List<string> { "123", "245", "345", "345", "234", "997", "998" };
+
+		const int solutionSubStringCount = 10;
+		static List<string> solutionNumbers = new List<string> { 
+			"37107287533902102798797998220837590246510135740250",
+			"46376937677490009712648124896970078050417018260538",
+			"74324986199524741059474233309513058123726617309629",
+			"91942213363574161572522430563301811072406154908250",
+			"23067588207539346171171980310421047513778063246676",
+			"89261670696623633820136378418383684178734361726757",
+			"28112879812849979408065481931592621691275889832738",
+			"44274228917432520321923589422876796487670272189318",
+			"47451445736001306439091167216856844588711603153276",
+			"70386486105843025439939619828917593665686757934951",
+			"62176457141856560629502157223196586755079324193331",
+			"64906352462741904929101432445813822663347944758178",
+			"92575867718337217661963751590579239728245598838407",
+			"58203565325359399008402633568948830189458628227828",
+			"80181199384826282014278194139940567587151170094390",
+			"35398664372827112653829987240784473053190104293586",
+			"86515506006295864861532075273371959191420517255829",
+			"71693888707715466499115593487603532921714970056938",
+			"54370070576826684624621495650076471787294438377604",
+			"53282654108756828443191190634694037855217779295145",
+			"36123272525000296071075082563815656710885258350721",
+			"45876576172410976447339110607218265236877223636045",
+			"17423706905851860660448207621209813287860733969412",
+			"81142660418086830619328460811191061556940512689692",
+			"51934325451728388641918047049293215058642563049483",
+			"62467221648435076201727918039944693004732956340691",
+			"15732444386908125794514089057706229429197107928209",
+			"55037687525678773091862540744969844508330393682126",
+			"18336384825330154686196124348767681297534375946515",
+			"80386287592878490201521685554828717201219257766954",
+			"78182833757993103614740356856449095527097864797581",
+			"16726320100436897842553539920931837441497806860984",
+			"48403098129077791799088218795327364475675590848030",
+			"87086987551392711854517078544161852424320693150332",
+			"59959406895756536782107074926966537676326235447210",
+			"69793950679652694742597709739166693763042633987085",
+			"41052684708299085211399427365734116182760315001271",
+			"65378607361501080857009149939512557028198746004375",
+			"35829035317434717326932123578154982629742552737307",
+			"94953759765105305946966067683156574377167401875275",
+			"88902802571733229619176668713819931811048770190271",
+			"25267680276078003013678680992525463401061632866526",
+			"36270218540497705585629946580636237993140746255962",
+			"24074486908231174977792365466257246923322810917141",
+			"91430288197103288597806669760892938638285025333403",
+			"34413065578016127815921815005561868836468420090470",
+			"23053081172816430487623791969842487255036638784583",
+			"11487696932154902810424020138335124462181441773470",
+			"63783299490636259666498587618221225225512486764533",
+			"67720186971698544312419572409913959008952310058822",
+			"95548255300263520781532296796249481641953868218774",
+			"76085327132285723110424803456124867697064507995236",
+			"37774242535411291684276865538926205024910326572967",
+			"23701913275725675285653248258265463092207058596522",
+			"29798860272258331913126375147341994889534765745501",
+			"18495701454879288984856827726077713721403798879715",
+			"38298203783031473527721580348144513491373226651381",
+			"34829543829199918180278916522431027392251122869539",
+			"40957953066405232632538044100059654939159879593635",
+			"29746152185502371307642255121183693803580388584903",
+			"41698116222072977186158236678424689157993532961922",
+			"62467957194401269043877107275048102390895523597457",
+			"23189706772547915061505504953922979530901129967519",
+			"86188088225875314529584099251203829009407770775672",
+			"11306739708304724483816533873502340845647058077308",
+			"82959174767140363198008187129011875491310547126581",
+			"97623331044818386269515456334926366572897563400500",
+			"42846280183517070527831839425882145521227251250327",
+			"55121603546981200581762165212827652751691296897789",
+			"32238195734329339946437501907836945765883352399886",
+			"75506164965184775180738168837861091527357929701337",
+			"62177842752192623401942399639168044983993173312731",
+			"32924185707147349566916674687634660915035914677504",
+			"99518671430235219628894890102423325116913619626622",
+			"73267460800591547471830798392868535206946944540724",
+			"76841822524674417161514036427982273348055556214818",
+			"97142617910342598647204516893989422179826088076852",
+			"87783646182799346313767754307809363333018982642090",
+			"10848802521674670883215120185883543223812876952786",
+			"71329612474782464538636993009049310363619763878039",
+			"62184073572399794223406235393808339651327408011116",
+			"66627891981488087797941876876144230030984490851411",
+			"60661826293682836764744779239180335110989069790714",
+			"85786944089552990653640447425576083659976645795096",
+			"66024396409905389607120198219976047599490197230297",
+			"64913982680032973156037120041377903785566085089252",
+			"16730939319872750275468906903707539413042652315011",
+			"94809377245048795150954100921645863754710598436791",
+			"78639167021187492431995700641917969777599028300699",
+			"15368713711936614952811305876380278410754449733078",
+			"40789923115535562561142322423255033685442488917353",
+			"44889911501440648020369068063960672322193204149535",
+			"41503128880339536053299340368006977710650566631954",
+			"81234880673210146739058568557934581403627822703280",
+			"82616570773948327592232845941706525094512325230608",
+			"22918802058777319719839450180888072429661980811197",
+			"77158542502016545090413245809786882778948721859617",
+			"72107838435069186155435662884062257473692284509516",
+			"20849603980134001723930671666823555245252804609722",
+			"53503534226472524250874054075591789781264330331690" };
+		#endregion
+		//5537376230
+		static void DoProblem13() {
+			Console.WriteLine(String.Format("{0}", SubStringSumNumbers(solutionSubStringCount, solutionNumbers)));
+		}
+
+		static string SubStringSumNumbers(int stringDigits, List<string> stringNumbers) {
+			var maxIndex = stringNumbers.Max(s => s.Length) - 1;
+			var carry = 0;
+			string result = "";
+			while (maxIndex>=0) {
+				result = AddStringAtIndex(stringNumbers, maxIndex, ref carry) + result;
+				maxIndex--;
+			}
+			result = carry.ToString() + result;
+			return result.Substring(0, stringDigits);
+		}
+
+		static string AddStringAtIndex(IEnumerable<string> stringNumbers, int index, ref int carry) {
+			int sum = carry%10;
+			carry = carry/10;
+
+			sum += stringNumbers.Where(stringNumber => stringNumber.Length > index).Sum(stringNumber => Int32.Parse(stringNumber[index].ToString()));
+
+			carry += sum/10;
+
+			return sum.ToString().Last().ToString();
+		}
+
+		#endregion
+	}
 }
