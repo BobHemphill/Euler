@@ -9,7 +9,7 @@ namespace Euler {
 		static readonly List<long> SievePrimes = new List<long> { };
 		static void Main(string[] args) {
 			DateTime start = DateTime.Now;
-			DoProblem13();
+			DoProblem17();
 			var elapsed = DateTime.Now - start;
 			Console.WriteLine(String.Format("{0}.{1}.{2}", elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds));
 			Console.ReadLine();
@@ -580,6 +580,11 @@ namespace Euler {
 		}
 
 		static string SubStringSumNumbers(int stringDigits, List<string> stringNumbers) {
+			string result = SumBigIntNumbers(stringNumbers);
+			return result.Substring(0, stringDigits);
+		}
+
+		private static string SumBigIntNumbers(List<string> stringNumbers) {
 			var maxIndex = stringNumbers.Max(s => s.Length) - 1;
 			var carry = 0;
 			string result = "";
@@ -588,7 +593,7 @@ namespace Euler {
 				maxIndex--;
 			}
 			result = carry.ToString() + result;
-			return result.Substring(0, stringDigits);
+			return result;
 		}
 
 		static string AddStringAtIndex(IEnumerable<string> stringNumbers, int index, ref int carry) {
@@ -600,6 +605,222 @@ namespace Euler {
 			carry += sum/10;
 
 			return sum.ToString().Last().ToString();
+		}
+
+		#endregion
+
+		#region 14 Longest Chain created by two functions
+		//837799
+		private static long testUpperLimit = 14;
+		private static long solutionUpperLimit = 1000000;
+
+		private static Func<long, long> EvenFunc = (long i) => { return (i / 2); };
+		private static Func<long, long> OddFunc = (long i) => { return (3 * i + 1); };
+		private static Func<long, long> ChainFunc = (long i) => { return (i % 2 == 0) ? EvenFunc(i) : OddFunc(i); };
+
+		static readonly Dictionary<long, long> ChainLengthDictionary = new Dictionary<long, long>();
+		static void DoProblem14(bool logging=false) {
+			Console.WriteLine(String.Format("{0}", FindSeedOfLongestChain(solutionUpperLimit, logging)));
+		}
+
+		private static long FindSeedOfLongestChain(long upperLimit, bool logging) {
+			long maxSeed = 0;
+			long maxChain = 0;
+			for (long i = 1; i < upperLimit; i++) {
+				long temp = ChainLength(i, logging);
+				if (temp > maxChain) {
+					maxChain = temp;
+					maxSeed = i;
+				}
+				if (logging) {
+					Console.Write(String.Format(":{0}", temp));
+					Console.WriteLine();
+				}
+			}
+			if (logging) {
+				Console.WriteLine();
+				Console.WriteLine();
+			}
+			return maxSeed;
+		}
+
+		private static long ChainLength(long i, bool logging) {
+			if (i <= 1) {
+				if(logging)
+					Console.Write("1");
+				return 1;
+			}
+			if (logging)
+				Console.Write(String.Format("{0}=>", i));
+			if (ChainLengthDictionary.ContainsKey(i)) {
+				if (logging)
+					Console.Write(String.Format(" -{0}- ", ChainLengthDictionary[i]-1));
+				return ChainLengthDictionary[i];
+			}
+				
+
+			long intermediateChainLength = 1 + ChainLength(ChainFunc(i), logging);
+			ChainLengthDictionary.Add(i, intermediateChainLength);
+			return intermediateChainLength;
+		}
+
+		#endregion
+
+		#region 15 FindPaths
+		//137846528820
+		private static int testPathGridSize = 20;
+		private static int solutionPathGridSize = 20;
+		private static readonly Dictionary<int, Dictionary<int, long>> HopsDictionary = new Dictionary<int, Dictionary<int, long>>();
+		static void DoProblem15(bool logging = false) {
+			Console.WriteLine(String.Format("{0}", FindPaths(testPathGridSize, logging)));
+		}
+
+		private static long FindPaths(int gridSize, bool logging) {
+			return FindPaths(0, 0, gridSize);
+		}
+		private static long FindPaths(int i, int j, int gridSize) {
+			if (i == gridSize || j == gridSize) return 1;
+
+			if (HopsDictionary.ContainsKey(i) && HopsDictionary[i].ContainsKey(j)) return HopsDictionary[i][j];
+
+			long rightPathHops = FindPaths(i + 1, j, gridSize);
+			AddToHopDictionary(i + 1, j, rightPathHops);
+			long downPathHops = FindPaths(i, j + 1, gridSize);
+			AddToHopDictionary(i, j + 1, downPathHops);
+			AddToHopDictionary(i, j, rightPathHops+downPathHops);
+			return rightPathHops + downPathHops;
+		}
+
+		private static void AddToHopDictionary(int i, int j, long hops) {
+			if (!HopsDictionary.ContainsKey(i)) HopsDictionary.Add(i, new Dictionary<int, long>());
+
+			if(!HopsDictionary[i].ContainsKey(j)) HopsDictionary[i].Add(j, hops);
+		}
+
+		#endregion
+
+		#region 16 SumOfDigitsBigInt
+		//1366
+		private static int testExponent = 15;
+		private static int solutionExponent = 1000;
+		static void DoProblem16(bool logging = false) {
+			Console.WriteLine(String.Format("{0}", SumOfDigitsBigInt(solutionExponent, logging)));
+		}
+
+		private static long SumOfDigitsBigInt(int exponent, bool logging) {
+			var result = "1";
+			for (int i = 0; i < exponent; i++) {
+				var stringArrary = new List<string> {result, result};
+				result = SumBigIntNumbers(stringArrary);
+			}
+
+			return result.Sum(i => Int32.Parse(i.ToString()));
+		}
+		#endregion
+
+		#region 17 SumOfNumberOfLettersInNumbersSpelledOut
+
+		private static int problem17TestUpperLimit = 1000;
+		private static int problem17SolutionUpperLimit = 1000;
+		static void DoProblem17(bool logging = true) {
+			Console.WriteLine(String.Format("{0}", SumOfNumberOfLettersInNumbersSpelledOut(problem17TestUpperLimit, logging)));
+		}
+
+		private static long SumOfNumberOfLettersInNumbersSpelledOut(int upperLimit, bool logging) {
+			var sum = 0;
+			for (int j = 1; j <= upperLimit; j++) {
+				var temp = GetNumberWordLength(j);
+				if( logging)
+					Console.WriteLine("{0}", temp);
+				sum += temp;
+			}
+			return sum;
+		}
+
+		private static int GetNumberWordLength(int i) {
+			switch(i) {
+				case 0:
+					return 0;
+				case 1:
+					return "One".Length;
+				case 2:
+					return "Two".Length;
+				case 3:
+					return "Three".Length;
+				case 4:
+					return "Four".Length;
+				case 5:
+					return "Five".Length;
+				case 6:
+					return "Six".Length;
+				case 7:
+					return "SEven".Length;
+				case 8:
+					return "Eigth".Length;
+				case 9:
+					return "Nine".Length;
+				case 10:
+					return "Ten".Length;
+				case 11:
+					return "Eleven".Length;
+				case 12:
+					return "Tweleve".Length;
+				case 13:
+					return "Thirteen".Length;
+				case 14:
+					return "Fourteen".Length;
+				case 15:
+					return "Fifteen".Length;
+				case 16:
+					return "Sixteen".Length;
+				case 17:
+					return "Seventeen".Length;
+				case 18:
+					return "Eighteen".Length;
+				case 19:
+					return "Nineteen".Length;
+				case 20:
+					return "Twenty".Length;
+				case 30:
+					return "Thirty".Length;
+				case 40:
+					return "Forty".Length;
+				case 50:
+					return "Fifty".Length;
+				case 60:
+					return "Sixty".Length;
+				case 70:
+					return "Seventy".Length;
+				case 80:
+					return "Eighty".Length;
+				case 90:
+					return "Ninety".Length;
+				case 100:
+					return "Hundred".Length;
+				case 1000:
+					return "One Thousand".Length;
+				default:
+					var tempInt = i;
+					var tempSum = 0;
+					if(i>99) {
+						int hundreds = (tempInt / 100);
+						tempSum = GetNumberWordLength(hundreds) + AddSpace() + GetNumberWordLength(100);
+						if (tempInt % 100 == 0) return tempSum;
+
+						tempSum += AddSpace() + AddAnd() + AddSpace();
+						return tempSum + GetNumberWordLength(tempInt - (hundreds * 100));
+					}
+					int tens = (tempInt / 10) * 10;
+					return tempSum + GetNumberWordLength(tens) + AddSpace() + GetNumberWordLength(tempInt - tens);
+			}
+		}
+
+		private static int AddAnd() {
+			return "and".Length;
+		}
+
+		private static int AddSpace() {
+			return "".Length;
 		}
 
 		#endregion
