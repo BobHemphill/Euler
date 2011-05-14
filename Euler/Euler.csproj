@@ -43,12 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BobsMath\BigInt.cs" />
     <Compile Include="DataStructures\IntegerTree.cs" />
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
     <Compile Include="EulerProblemEngine.cs" />
+    <Compile Include="BobsMath\Factorial.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problems\EulerProblem1.cs" />
     <Compile Include="Problems\EulerProblem18.cs" />
+    <Compile Include="Problems\EulerProblem19.cs" />
+    <Compile Include="Problems\EulerProblem20.cs" />
     <Compile Include="Problems\EulerProblem67.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

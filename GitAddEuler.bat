@@ -8,4 +8,5 @@ git add Euler/Problem.cs;
 git add Euler/RunResponse.cs;
 git add Euler/Problems;
 git add Euler/DataStructures;
+git add Euler/BobsMath;
 git status;

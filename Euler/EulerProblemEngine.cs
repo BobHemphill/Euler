@@ -14,7 +14,11 @@ namespace Euler
     public class EulerProblemEngine
     {
         private Dictionary<Type, TimeSpan> _ProblemRunTimes = new Dictionary<Type, TimeSpan>();
-        private List<Problem> ProblemsToSolve = new List<Problem> { new EulerProblem1(), new EulerProblem18(), new EulerProblem67() };
+        private List<Problem> ProblemsToSolve = new List<Problem> { 
+          new EulerProblem1(), 
+          new EulerProblem18(), new EulerProblem19(), 
+          new EulerProblem20(),
+          new EulerProblem67() };
 
         public bool Logging { get; set; }
 
