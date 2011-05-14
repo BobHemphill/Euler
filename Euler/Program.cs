@@ -9,7 +9,7 @@ namespace Euler {
 		static readonly List<long> Primes = new List<long> { 2 };
 		static readonly List<long> SievePrimes = new List<long> { };
 		static void Main(string[] args) {
-			new EulerProblemEngine{Logging=false}.Run(new EulerProblem1(), RunModes.Solution);
+			new EulerProblemEngine{Logging=false}.Run(new EulerProblem67(), RunModes.Solution);
 		}		
 
 		#region Problem 2 Sum Even Fibonacci Numbers less than 4000000

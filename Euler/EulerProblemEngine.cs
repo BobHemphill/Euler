@@ -14,7 +14,7 @@ namespace Euler
     public class EulerProblemEngine
     {
         private Dictionary<Type, TimeSpan> _ProblemRunTimes = new Dictionary<Type, TimeSpan>();
-        private List<Problem> ProblemsToSolve = new List<Problem>{new EulerProblem1()};
+        private List<Problem> ProblemsToSolve = new List<Problem> { new EulerProblem1(), new EulerProblem18(), new EulerProblem67() };
 
         public bool Logging { get; set; }
 
@@ -30,7 +30,7 @@ namespace Euler
             var elapsed = DateTime.Now - start;
             
             _ProblemRunTimes.Add(problemToSolve.GetType(), elapsed);
-            if(Logging)
+            //if(Logging)
                 Console.WriteLine(String.Format("{0}.{1}.{2}", elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds));
             Console.ReadLine();
         }
