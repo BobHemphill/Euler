@@ -17,24 +17,23 @@ namespace Euler.BobsMath {
 
       return SumBigIntNumbers(products);
     }
-
-    private BigInt SumBigIntNumbers(List<BigInt> stringNumbers) {
+    
+    public BigInt SumBigIntNumbers(List<BigInt> stringNumbers) {
       var maxIndex = stringNumbers.Max(s => s.Value.Length) - 1;
-      var carry = 0;
+      long carry = 0;
       BigInt result = new BigInt("");
-      while(maxIndex >= 0) {
-        result = new BigInt(AddStringAtIndex(stringNumbers, maxIndex, ref carry).Value + result.Value);
-        maxIndex--;
+      for(int i=0;i<=maxIndex;i++) {
+        result = new BigInt(AddStringAtIndex(stringNumbers, i, ref carry).Value + result.Value);       
       }
       result = new BigInt(carry.ToString() + result.Value);
       return result;
     }
 
-    private BigInt AddStringAtIndex(IEnumerable<BigInt> stringNumbers, int index, ref int carry) {
-      int sum = carry % 10;
+    private BigInt AddStringAtIndex(IEnumerable<BigInt> stringNumbers, int index, ref long carry) {
+      long sum = carry % 10;
       carry = carry / 10;
 
-      sum += stringNumbers.Where(stringNumber => stringNumber.Value.Length > index).Sum(stringNumber => Int32.Parse(stringNumber.Value[index].ToString()));
+      sum += stringNumbers.Where(stringNumber => stringNumber.Value.Length > index).Sum(stringNumber => Int32.Parse(stringNumber.Value[stringNumber.Value.Length - 1 - index].ToString()));
 
       carry += sum / 10;
 

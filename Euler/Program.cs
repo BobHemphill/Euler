@@ -3,142 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Euler.Problems;
+using Euler.BobsMath;
 
 namespace Euler {
 	class Program {
 		static readonly List<long> Primes = new List<long> { 2 };
 		static readonly List<long> SievePrimes = new List<long> { };
 		static void Main(string[] args) {
-      new EulerProblemEngine { Logging = false }.Run(new EulerProblem20(), RunModes.Solution);
-		}		
-
-		#region Problem 2 Sum Even Fibonacci Numbers less than 4000000
-		static void DoProblem2() {
-			//4613732
-			Console.WriteLine(String.Format("{0}", SumEvenFibonnaciBelow(4000000)));
-		}
-
-		private static long SumEvenFibonnaciBelow(long limit) {
-			long fibSum = 0;
-			long fibCur = 1;
-			long fibPrev = 1;
-
-			while (fibCur < limit) {
-				if (fibCur % 2 == 0)
-					fibSum += fibCur;
-				long temp = fibCur;
-				fibCur += fibPrev;
-				fibPrev = temp;
-			}
-
-			return fibSum;
-		}
-
-		#endregion
-
-		#region Problem 3 Largest Prime Factor
-		static void DoProblem3() {
-			//600851475143
-			//6857
-			Console.WriteLine(String.Format("{0}", FindLargestPrimeFactor(600851475143)));
-		}
-
-		static readonly Dictionary<long, int> PrimeFactors = new Dictionary<long, int>();
-		private static long FindLargestPrimeFactor(long composite) {
-			FactorComposite(composite, PrimeFactors);
-			return PrimeFactors.Keys.Max();
-		}
-
-		private static void FactorComposite(long composite, Dictionary<long, int> primeFactors) {
-			for (long i = 2; i <= Math.Sqrt(composite); i++) {
-				if (IsPrime(i))
-					if (composite % i == 0) {
-						AddToPrimeFactors(i, primeFactors);
-						FactorComposite(composite / i, primeFactors);
-						return;
-					}
-			}
-			if (IsPrime(composite))
-				AddToPrimeFactors(composite, primeFactors);
-		}
-
-		private static void AddToPrimeFactors(long primeFactor, Dictionary<long, int> primeFactors) {
-			if (primeFactors.ContainsKey(primeFactor))
-				primeFactors[primeFactor]++;
-			else
-				primeFactors.Add(primeFactor, 1);
-		}
-		private static void AddToPrimeFactors(Dictionary<long, int> primeFactors, Dictionary<long, int> tempPrimeFactors) {
-			foreach (KeyValuePair<long, int> tempPrimeFactorsKVP in tempPrimeFactors) {
-				if (primeFactors.ContainsKey(tempPrimeFactorsKVP.Key)) {
-					if (primeFactors[tempPrimeFactorsKVP.Key] < tempPrimeFactorsKVP.Value)
-						primeFactors[tempPrimeFactorsKVP.Key] = tempPrimeFactorsKVP.Value;
-				}
-				else
-					primeFactors.Add(tempPrimeFactorsKVP.Key, tempPrimeFactorsKVP.Value);
-			}
-
-		}
-		#endregion
-
-		#region Problem 4 Largest Palindrome that is a Composite of Two Three Digit Numbers
-		//3
-		//906609
-		static readonly List<long> palidromes = new List<long>();
-		static void DoProblem4() {
-			Console.WriteLine(String.Format("{0}", FindLargestPalindromeCompositeOfTwoThreeDigitNumbers(3)));
-		}
-
-		static long FindLargestPalindromeCompositeOfTwoThreeDigitNumbers(int compositeDigitLength) {
-			for (var i = (long)Math.Pow(10, compositeDigitLength) - 1; i > (long)Math.Pow(10, compositeDigitLength - 1); i--) {
-				for (var j = (long)Math.Pow(10, compositeDigitLength) - 1; j > (long)Math.Pow(10, compositeDigitLength - 1); j--) {
-					if (IsPalidrome(i * j))
-						palidromes.Add(i * j);
-				}
-			}
-			return palidromes.Max();
-		}
-
-		static bool IsPalidrome(long palidrome) {
-			string palidromeString = palidrome.ToString();
-			for (int i = 0; i < palidromeString.Length / 2; i++) {
-				if (palidromeString[i] != palidromeString[palidromeString.Length - 1 - i])
-					return false;
-			}
-			return true;
-		}
-		#endregion
-
-		#region Problem 5 Smallest Number Divisible by 2-20
-		//20
-		//232792560
-		static void DoProblem5() {
-			Console.WriteLine(String.Format("{0}", FindSmallestNumberDivisibleByFirstXIntegers(20)));
-		}
-
-		static long FindSmallestNumberDivisibleByFirstXIntegers(int limit) {
-			for (int i = 2; i <= limit; i++) {
-				if (IsPrime(i))
-					AddToPrimeFactors(i, PrimeFactors);
-				else {
-					var tempPrimeFactors = new Dictionary<long, int>();
-					FactorComposite(i, tempPrimeFactors);
-					AddToPrimeFactors(PrimeFactors, tempPrimeFactors);
-				}
-			}
-			return LeastCommonMultiple(PrimeFactors);
-		}
-
-		static long LeastCommonMultiple(Dictionary<long, int> primeFactors) {
-			long lcm = 1;
-			foreach (KeyValuePair<long, int> primeFactorKVP in primeFactors) {
-				for (int i = 0; i < primeFactorKVP.Value; i++) {
-					lcm *= primeFactorKVP.Key;
-				}
-			}
-			return lcm;
-		}
-		#endregion
+      new EulerProblemEngine { Logging = false }.Run(new EulerProblem22(), RunModes.Solution);
+		}							    
 
 		#region Problem 6 Difference between sum of squares and square of sums
 		//100
@@ -425,24 +298,8 @@ namespace Euler {
 		}
 
 		static bool HasAtLeastNumberOfDivisors(int numberOfDivisors, long triangleNumber) {
-			return GetDivisors(triangleNumber).Count() >= numberOfDivisors;
-		}
-
-		static IEnumerable<long> GetDivisors(long triangleNumber) {
-			var upperLimit = triangleNumber;
-			var divisors = new List<long>();
-
-			for (var i = 1; i <= upperLimit; i++) {
-				if (triangleNumber % i != 0) continue;
-				divisors.Add(i);
-				var tempUpperLimit = triangleNumber / i;
-				if (tempUpperLimit > i)
-					divisors.Add(triangleNumber / i);
-				upperLimit = tempUpperLimit - 1;
-			}
-			return divisors;
-		}
-
+      return Factors.GetFactors(triangleNumber).Count() >= numberOfDivisors;
+		}		
 		#endregion
 
 		#region 13 First 10 Digits of Sum of 100 50 digit numbers
