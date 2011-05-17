@@ -32,5 +32,17 @@ namespace Euler.BobsMath {
     public static long SumFactors(long number, bool proper) {
       return GetFactors(number, proper).Sum();
     }
+
+		public static NumberFactorTypes GetNumberFactorType(long number) {
+			var sumFactors = SumFactors(number, true);
+			return (sumFactors == number) ? NumberFactorTypes.Perfect :
+				(sumFactors<number) ? NumberFactorTypes.Deficient : NumberFactorTypes.Abundant;
+		}
   }  
+
+	public enum NumberFactorTypes {
+		Deficient =1,
+		Perfect =2,
+		Abundant=3		
+	}
 }

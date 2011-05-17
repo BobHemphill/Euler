@@ -17,7 +17,7 @@ namespace Euler
         private List<Problem> ProblemsToSolve = new List<Problem> { 
           new EulerProblem1(), new EulerProblem2(), new EulerProblem3(), new EulerProblem4(), new EulerProblem5(),
           new EulerProblem18(), new EulerProblem19(), 
-          new EulerProblem20(), new EulerProblem21(), new EulerProblem22(),
+          new EulerProblem20(), new EulerProblem21(), new EulerProblem22(), new EulerProblem23(), new EulerProblem24(),
           new EulerProblem67() };
 
         public bool Logging { get; set; }

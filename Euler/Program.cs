@@ -10,7 +10,7 @@ namespace Euler {
 		static readonly List<long> Primes = new List<long> { 2 };
 		static readonly List<long> SievePrimes = new List<long> { };
 		static void Main(string[] args) {
-      new EulerProblemEngine { Logging = false }.Run(new EulerProblem22(), RunModes.Solution);
+			new EulerProblemEngine { Logging = false }.Run(new EulerProblem24(), RunModes.Solution);
 		}							    
 
 		#region Problem 6 Difference between sum of squares and square of sums
