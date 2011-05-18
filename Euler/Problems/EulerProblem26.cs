@@ -7,8 +7,8 @@ namespace Euler.Problems {
 
   public class EulerProblem26 : Problem {
     public EulerProblem26()
-      : base(10, (long)7, 1000) {
-      SolutionResponse = null;
+      : base(10, 7, 1000) {
+      SolutionResponse = 983;
     }
 
     private readonly List<LongDivisionMember> LongDivisionCache = new List<LongDivisionMember>();
