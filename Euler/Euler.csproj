@@ -54,6 +54,7 @@
     <Compile Include="BobsMath\Factorial.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Problems\EulerProblem1.cs" />
+    <Compile Include="Problems\EulerProblem10.cs" />
     <Compile Include="Problems\EulerProblem18.cs" />
     <Compile Include="Problems\EulerProblem19.cs" />
     <Compile Include="Problems\EulerProblem2.cs" />
@@ -62,10 +63,15 @@
     <Compile Include="Problems\EulerProblem22.cs" />
     <Compile Include="Problems\EulerProblem23.cs" />
     <Compile Include="Problems\EulerProblem24.cs" />
+    <Compile Include="Problems\EulerProblem25.cs" />
     <Compile Include="Problems\EulerProblem3.cs" />
     <Compile Include="Problems\EulerProblem4.cs" />
     <Compile Include="Problems\EulerProblem5.cs" />
+    <Compile Include="Problems\EulerProblem6.cs" />
     <Compile Include="Problems\EulerProblem67.cs" />
+    <Compile Include="Problems\EulerProblem7.cs" />
+    <Compile Include="Problems\EulerProblem8.cs" />
+    <Compile Include="Problems\EulerProblem9.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunResponse.cs" />

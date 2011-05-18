@@ -35,6 +35,24 @@ namespace Euler.BobsMath {
       return _Primes.Contains(number);
     }
 
+		public static long PrimeAtIndex(int index) {
+			if (_Primes == null)
+				InitPrimes(UPPERLIMIT);
+
+			return _Primes[index];
+		}
+
+		public static long SumAllPrimes() {
+			return SumAllPrimes(UPPERLIMIT);
+		}
+
+  	public static long SumAllPrimes(long upperLimit) {
+			if (_Primes == null)
+				InitPrimes(upperLimit);
+
+			return _Primes.Sum();
+		}
+
     public static IEnumerable<long> UniquePrimeFactors(long number, bool initPrimes = true) {
       if(initPrimes) 
         InitPrimes((long)Math.Sqrt(number));
