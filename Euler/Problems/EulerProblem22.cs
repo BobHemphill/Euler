@@ -12,7 +12,7 @@ namespace Euler.Problems {
     private const int ASCII_CAPITAL_Z = 90;
     public EulerProblem22()
       : base(null, null, null) {
-        SolutionResponse = 871198282;
+        SolutionResponse = "871198282";
     }
 
     public override object Run(RunModes runMode, object input, bool Logging) {

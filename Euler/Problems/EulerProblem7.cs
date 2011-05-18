@@ -6,8 +6,8 @@ namespace Euler.Problems {
 
 	public class EulerProblem7 : Problem {
 		public EulerProblem7()
-			: base(6, 13, 10001) {
-				SolutionResponse = 104743;
+      : base(6, (long)13, 10001) {
+        SolutionResponse = (long)104743;
 		}
 
 		public override object Run(RunModes runMode, object input, bool Logging) {

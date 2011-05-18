@@ -9,8 +9,8 @@ namespace Euler.Problems {
 
 	public class EulerProblem23 : Problem {
 		public EulerProblem23()
-			: base((long)25, 301, (long)28123) {
-				SolutionResponse = 4179871;
+      : base((long)25, (long)301, (long)28123) {
+        SolutionResponse = (long)4179871;
 		}
 
 		public override object Run(RunModes runMode, object input, bool Logging) {
