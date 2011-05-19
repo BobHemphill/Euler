@@ -27,7 +27,17 @@ namespace Euler.BobsMath {
       return SumBigIntNumbers(products);
     }
     
-    public BigInt SumBigIntNumbers(List<BigInt> stringNumbers) {
+		public static BigInt Exp(int x, int y) {
+			if (x == 0) return new BigInt("0");
+			if (y == 0) return new BigInt("1");
+			BigInt ret = new BigInt(x.ToString());
+			for (int i = 0; i < y-1; i++) {
+				ret = ret.Product(x);
+			}
+			return ret;
+		}
+
+  	public BigInt SumBigIntNumbers(List<BigInt> stringNumbers) {
       var maxIndex = stringNumbers.Max(s => s.Value.Length) - 1;
       long carry = 0;
       BigInt result = new BigInt("");
@@ -67,6 +77,17 @@ namespace Euler.BobsMath {
     public long SumOfDigits() {
       return Value.Sum(item => Int32.Parse(item.ToString()));
     }
+
+		public override bool Equals(object that) {
+			var bigIntThat = that as BigInt;
+
+			if (bigIntThat == null) return false;
+			return CompareTo(that) == 0;
+		}
+
+		public override int GetHashCode() {
+			return Value.GetHashCode();
+		}
 
   	public int CompareTo(object that) {
   		var bigIntThat = that as BigInt;
