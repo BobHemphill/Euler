@@ -6,9 +6,15 @@ using System.Text;
 namespace Euler.BobsMath {
   public static class Primes {
     private static List<long> _Primes=null;
+		public static List<long> AllPrimes { get { return _Primes; } }
     private const long UPPERLIMIT=1000000;
 
-    public static void InitPrimes(long upperLimit){
+		public static void InitPrimes()
+		{
+			InitPrimes(UPPERLIMIT);
+		}
+
+  	public static void InitPrimes(long upperLimit){
       _Primes = new List<long>();
       _Primes.Add(2);
       for(long i=3;i<upperLimit;i+=2){
@@ -34,6 +40,7 @@ namespace Euler.BobsMath {
 
       return _Primes.Contains(number);
     }
+
 
 		public static long PrimeAtIndex(int index) {
 			if (_Primes == null)
