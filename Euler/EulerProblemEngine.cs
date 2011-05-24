@@ -18,7 +18,7 @@ namespace Euler
           new EulerProblem18(), new EulerProblem19(), 
           new EulerProblem20(), new EulerProblem21(), new EulerProblem22(), new EulerProblem23(), new EulerProblem24(), new EulerProblem25(),
           new EulerProblem26(), new EulerProblem27(), new EulerProblem28(), new EulerProblem29(), new EulerProblem30(),
-          new EulerProblem31(),
+          new EulerProblem31(), new EulerProblem32(), new EulerProblem33(), new EulerProblem34(),
           new EulerProblem67() };
 
         public bool Logging { get; set; }
