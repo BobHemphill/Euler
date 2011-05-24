@@ -10,7 +10,7 @@ namespace Euler {
 		static readonly List<long> Primes = new List<long> { 2 };
 		static readonly List<long> SievePrimes = new List<long> { };
 		static void Main(string[] args) {
-			new EulerProblemEngine { Logging = true }.Run(new EulerProblem30(), RunModes.Solution);
+			new EulerProblemEngine { Logging = true }.Run(new EulerProblem31(), RunModes.Solution);
 			Console.ReadLine();
 		}							    					
 
