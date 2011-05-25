@@ -10,7 +10,7 @@ namespace Euler.Problems {
   public class EulerProblem35 : Problem {
     public EulerProblem35()
       : base((long)100, 13, (long)1000000) {
-      SolutionResponse = null;
+      SolutionResponse = 55;
     }
 
     public List<long> CircularPrimes = new List<long>();
@@ -19,7 +19,7 @@ namespace Euler.Problems {
       var primes = Primes.AllPrimes;
 
       foreach(long prime in primes){
-        var permutations = Permutations.Generate(prime).Distinct();
+				var permutations = Permutations.GenerateRotations(prime).Distinct();
         var addPrime = true;
         foreach(var permutation in permutations){
           if( !Primes.IsPrime(permutation)){
