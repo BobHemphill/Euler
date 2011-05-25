@@ -48,6 +48,8 @@
     <Compile Include="BobsMath\Fibonacci.cs" />
     <Compile Include="BobsMath\GreatestCommonDenominator.cs" />
     <Compile Include="BobsMath\LeastCommonMultiple.cs" />
+    <Compile Include="BobsMath\Palindrome.cs" />
+    <Compile Include="BobsMath\Permutations.cs" />
     <Compile Include="BobsMath\Primes.cs" />
     <Compile Include="DataStructures\IntegerTree.cs" />
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
@@ -75,6 +77,8 @@
     <Compile Include="Problems\EulerProblem32.cs" />
     <Compile Include="Problems\EulerProblem33.cs" />
     <Compile Include="Problems\EulerProblem34.cs" />
+    <Compile Include="Problems\EulerProblem35.cs" />
+    <Compile Include="Problems\EulerProblem36.cs" />
     <Compile Include="Problems\EulerProblem4.cs" />
     <Compile Include="Problems\EulerProblem5.cs" />
     <Compile Include="Problems\EulerProblem6.cs" />

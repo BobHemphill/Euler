@@ -20,22 +20,13 @@ namespace Euler.Problems {
 		private string FindNthOrderedPermutation(PermutationInput input, bool logging) {
 			List<string> permutationMembers = input.PermutationString.Select(item => item.ToString()).ToList();
 			List<string> permutations = new List<string> ();
-			GeneratePermutations("", permutationMembers, permutations, logging);
+			Permutations.Generate("", permutationMembers, permutations);
 			foreach (var permutation in permutations) {
 				if (logging)
 					Console.WriteLine(permutation);
 			}
 			return permutations.Count()>input.PermutationIndex ? permutations[input.PermutationIndex-1] : "IndexError";
-		}
-
-		private void GeneratePermutations(string seed, List<string> permutationMembers, List<string> permutations, bool logging) {
-			if( permutationMembers.Count()==1) {
-				permutations.Add(seed + permutationMembers[0]);
-			}
-			foreach (var permutationMember in permutationMembers) {
-				GeneratePermutations(seed + permutationMember, permutationMembers.Where(item => item != permutationMember).ToList(), permutations, logging);				
-			}						
-		}
+		}		
 	}
 
 	public class PermutationInput {

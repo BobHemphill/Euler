@@ -15,10 +15,11 @@ namespace Euler
         private List<Problem> ProblemsToSolve = new List<Problem> { 
           new EulerProblem1(), new EulerProblem2(), new EulerProblem3(), new EulerProblem4(), new EulerProblem5(),
 					new EulerProblem6(), new EulerProblem7(), new EulerProblem8(), new EulerProblem9(), new EulerProblem10(),
-          new EulerProblem18(), new EulerProblem19(), 
-          new EulerProblem20(), new EulerProblem21(), new EulerProblem22(), new EulerProblem23(), new EulerProblem24(), new EulerProblem25(),
+          new EulerProblem18(), new EulerProblem19(), new EulerProblem20(), 
+          new EulerProblem21(), new EulerProblem22(), new EulerProblem23(), new EulerProblem24(), new EulerProblem25(),
           new EulerProblem26(), new EulerProblem27(), new EulerProblem28(), new EulerProblem29(), new EulerProblem30(),
-          new EulerProblem31(), new EulerProblem32(), new EulerProblem33(), new EulerProblem34(),
+          new EulerProblem31(), new EulerProblem32(), new EulerProblem33(), new EulerProblem34(), new EulerProblem35(),
+          new EulerProblem36(),
           new EulerProblem67() };
 
         public bool Logging { get; set; }
