@@ -6,7 +6,7 @@ using System.Text;
 namespace Euler.BobsMath {
   public static class Primes {
     private static List<long> _Primes=null;
-		public static List<long> AllPrimes { get { return _Primes; } }
+		public static List<long> AllPrimes { get { if (_Primes == null) InitPrimes(); return _Primes; } }
     private const long UPPERLIMIT=1000000;
 
 		public static void InitPrimes()
@@ -78,5 +78,15 @@ namespace Euler.BobsMath {
       }
       return factors;
     }    
+
+		public static bool IsTruncatable(long number) {
+			var temp = number.ToString();
+			var upperLimit = temp.Length;
+			for (int i = 1; i < upperLimit; i++) {
+				if (!IsPrime(Int64.Parse(temp.Substring(i)))) return false;
+				if (!IsPrime(Int64.Parse(temp.Substring(0, upperLimit-i)))) return false;
+			}
+			return true;
+		}
   }
 }

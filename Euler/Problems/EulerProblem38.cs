@@ -5,15 +5,16 @@ using Euler.BobsMath;
 
 namespace Euler.Problems {
 
-	public class EulerProblem32 : Problem {
-		public EulerProblem32()
+	public class EulerProblem38 : Problem {
+		public EulerProblem38()
 			: base(null, null, 9) {
-			SolutionResponse = 45228;
+			SolutionResponse = null;
 		}
 
 		public List<int> Pandigitals = new List<int>();
 		public override object Run(RunModes runMode, object input, bool Logging) {
 			int pandigitalCheckAmount = (int)input;
+			
 			for (int i = 1; i < 98; i++) {
 				for (int j = 123; j < 9876; j++) {
 					var check = new Pandigital.PandigitalWrapper(i, j, i * j, 9);
@@ -21,7 +22,7 @@ namespace Euler.Problems {
 						Pandigitals.Add(check.Product);
 				}
 			}
-			return Pandigitals.Sum();		
-		}		
-	}	
+			return Pandigitals.Sum();
+		}
+	}
 }
