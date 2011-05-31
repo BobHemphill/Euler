@@ -17,10 +17,19 @@ namespace Euler.BobsMath {
   	public static void InitPrimes(long upperLimit){
       _Primes = new List<long>();
       _Primes.Add(2);
+      //long pairLimit = UPPERLIMIT * 10;      
       for(long i=3;i<upperLimit;i+=2){
+        //if(i >= pairLimit) {
+        //  PairPrimes(_Primes, pairLimit);
+        //  pairLimit*=5;
+        //}
         _Primes.Add(i);
       }
 
+      PairPrimes(_Primes, upperLimit);
+    }
+
+    static void PairPrimes(List<long> primes, long upperLimit){
       int index = 0;
       int primeCount = _Primes.Count;
       long squareRootUpperLimit = (long)Math.Sqrt(upperLimit);
@@ -29,8 +38,8 @@ namespace Euler.BobsMath {
         _Primes.RemoveAll(item => item != prime && item % prime == 0);
         primeCount = _Primes.Count;
         index++;
-        if( index>=primeCount) break;
-        prime = _Primes[index];             
+        if(index >= primeCount) break;
+        prime = _Primes[index];
       }
     }
 

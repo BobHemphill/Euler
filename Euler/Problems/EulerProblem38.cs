@@ -8,21 +8,39 @@ namespace Euler.Problems {
 	public class EulerProblem38 : Problem {
 		public EulerProblem38()
 			: base(null, null, 9) {
-			SolutionResponse = null;
+			SolutionResponse = 932718654;
 		}
 
 		public List<int> Pandigitals = new List<int>();
 		public override object Run(RunModes runMode, object input, bool Logging) {
 			int pandigitalCheckAmount = (int)input;
-			
-			for (int i = 1; i < 98; i++) {
-				for (int j = 123; j < 9876; j++) {
-					var check = new Pandigital.PandigitalWrapper(i, j, i * j, 9);
-					if (check.IsPandigital() && !Pandigitals.Contains(check.Product))
-						Pandigitals.Add(check.Product);
-				}
+			int maxPandigital = 918273645;
+
+			for (int i = 1; i <= 8; i++) {
+				int temp = 90 + i;        
+        MaxPandigital(temp, pandigitalCheckAmount, ref maxPandigital);        
 			}
-			return Pandigitals.Sum();
+      for(int i = 12; i <= 87; i++) {
+        int temp = 900 + i;
+        MaxPandigital(temp, pandigitalCheckAmount, ref maxPandigital);
+      }
+      for(int i = 123; i <= 876; i++) {
+        int temp = 9000 + i;
+        MaxPandigital(temp, pandigitalCheckAmount, ref maxPandigital);
+      }      
+      return maxPandigital;
 		}
+
+    void MaxPandigital(int temp, int pandigitalCheckAmount, ref int maxPandigital)
+    {
+      string tempString = temp.ToString();
+      int multiplier = 2;
+      while(tempString.Length < pandigitalCheckAmount) {        
+        tempString += (temp * multiplier).ToString();
+        multiplier++;
+      }
+      if(tempString.Length == pandigitalCheckAmount && Pandigital.IsPandigital(tempString, pandigitalCheckAmount) && Int32.Parse(tempString) > maxPandigital)
+        maxPandigital = Int32.Parse(tempString);
+    }
 	}
 }
