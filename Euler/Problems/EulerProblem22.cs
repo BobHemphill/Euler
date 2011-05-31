@@ -8,8 +8,6 @@ using Euler.BobsMath;
 namespace Euler.Problems {
 
   public class EulerProblem22 : Problem {
-    private const int ASCII_CAPITAL_A = 65;
-    private const int ASCII_CAPITAL_Z = 90;
     public EulerProblem22()
       : base(null, null, null) {
         SolutionResponse = "871198282";
@@ -21,12 +19,10 @@ namespace Euler.Problems {
 
     private object ParseNameList() {
       _Names.Sort(StringComparer.InvariantCultureIgnoreCase);
-      List<BigInt> parsedNames = _Names.Select((item, index) => new BigInt((ParseName(item.ToUpper()) * (index + 1)).ToString())).ToList();
+      List<BigInt> parsedNames = _Names.Select((item, index) => new BigInt((ParseName.Calculate(item.ToUpper()) * (index + 1)).ToString())).ToList();
       return new BigInt("").SumBigIntNumbers(parsedNames).Value;        
     }
-    private int ParseName(string name){
-      return name.Sum(item=>((int)item>=ASCII_CAPITAL_A && (int)item<=ASCII_CAPITAL_Z) ? (int)item - ASCII_CAPITAL_A + 1 : 0);
-    }
+    
     private readonly List<string> _Names = new List<string>(){
     "MARY","PATRICIA","LINDA","BARBARA","ELIZABETH","JENNIFER","MARIA","SUSAN","MARGARET","DOROTHY","LISA","NANCY","KAREN","BETTY","HELEN","SANDRA","DONNA",
     "CAROL","RUTH","SHARON","MICHELLE","LAURA","SARAH","KIMBERLY","DEBORAH","JESSICA","SHIRLEY","CYNTHIA","ANGELA","MELISSA","BRENDA","AMY","ANNA","REBECCA",

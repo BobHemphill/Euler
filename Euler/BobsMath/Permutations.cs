@@ -24,6 +24,13 @@ namespace Euler.BobsMath {
       return permutations.Select(item=>Int64.Parse(item));
     }
 
+		public static IEnumerable<string> Generate(string n) {
+			List<string> permutationMembers = n.Select(item => item.ToString()).ToList();
+			List<string> permutations = new List<string>();
+			Generate("", permutationMembers, permutations);
+			return permutations;
+		}
+
 		public static IEnumerable<long> GenerateRotations(long n) {
 			List<long> rotations = new List<long>();
 			string temp = n.ToString();
