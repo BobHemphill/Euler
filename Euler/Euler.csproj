@@ -46,13 +46,17 @@
     <Compile Include="BobsMath\BigInt.cs" />
     <Compile Include="BobsMath\Factors.cs" />
     <Compile Include="BobsMath\Fibonacci.cs" />
+    <Compile Include="BobsMath\FloatingPointEquals.cs" />
     <Compile Include="BobsMath\GreatestCommonDenominator.cs" />
+    <Compile Include="BobsMath\Hexagonal.cs" />
     <Compile Include="BobsMath\LeastCommonMultiple.cs" />
     <Compile Include="BobsMath\Palindrome.cs" />
     <Compile Include="BobsMath\Pandigitial.cs" />
     <Compile Include="BobsMath\ParseName.cs" />
+    <Compile Include="BobsMath\Pentagonal.cs" />
     <Compile Include="BobsMath\Permutations.cs" />
     <Compile Include="BobsMath\Primes.cs" />
+    <Compile Include="BobsMath\Triangle.cs" />
     <Compile Include="DataStructures\IntegerTree.cs" />
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
     <Compile Include="EulerProblemEngine.cs" />
@@ -89,6 +93,8 @@
     <Compile Include="Problems\EulerProblem41.cs" />
     <Compile Include="Problems\EulerProblem42.cs" />
     <Compile Include="Problems\EulerProblem43.cs" />
+    <Compile Include="Problems\EulerProblem44.cs" />
+    <Compile Include="Problems\EulerProblem45.cs" />
     <Compile Include="Problems\EulerProblem5.cs" />
     <Compile Include="Problems\EulerProblem6.cs" />
     <Compile Include="Problems\EulerProblem67.cs" />
