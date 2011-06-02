@@ -7,6 +7,7 @@ using System.Text;
 namespace Euler.BobsMath {
   public class BigInt : IComparable {
 		public string Value { get; private set; }
+		public static int MaxIndex { get; set; }
     public BigInt(string value) {
       Value = value;
     }
@@ -38,7 +39,7 @@ namespace Euler.BobsMath {
 		}
 
   	public BigInt SumBigIntNumbers(List<BigInt> stringNumbers) {
-      var maxIndex = stringNumbers.Max(s => s.Value.Length) - 1;
+      var maxIndex = (MaxIndex!=0) ? MaxIndex : stringNumbers.Max(s => s.Value.Length) - 1;
       long carry = 0;
       BigInt result = new BigInt("");
       for(int i=0;i<=maxIndex;i++) {

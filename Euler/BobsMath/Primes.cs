@@ -71,14 +71,28 @@ namespace Euler.BobsMath {
 
     public static IEnumerable<long> UniquePrimeFactors(long number, bool initPrimes = true) {
       if(initPrimes) 
-        InitPrimes((long)Math.Sqrt(number));
-      var factors = Factors.GetFactors(number);
-      return factors.Where(item=>IsPrime(item));
+        InitPrimes(number);
+
+			var upperLimit = number;
+			var divisors = new List<long>();
+			if (IsPrime(number)) { divisors.Add(number); return divisors; }
+
+    	foreach (var prime in AllPrimes) {
+				if (prime > upperLimit) break;
+				if (number % prime != 0) continue;
+				divisors.Add(prime);
+				var tempUpperLimit = number / prime;
+				if (tempUpperLimit > prime && IsPrime(tempUpperLimit))
+					divisors.Add(number / prime);
+				upperLimit = tempUpperLimit - 1;
+    	}
+			
+			return divisors;
     }
     
     public static IEnumerable<long> AllPrimeFactors(long number, bool initPrimes=true){
       if(initPrimes)
-        InitPrimes((long)Math.Sqrt(number));
+				InitPrimes(number);
       List<long> factors = UniquePrimeFactors(number, false).ToList();
 
       foreach(long factor in factors.ToList()) {
