@@ -64,6 +64,12 @@
     <Compile Include="Problem.cs" />
     <Compile Include="Problems\EulerProblem1.cs" />
     <Compile Include="Problems\EulerProblem10.cs" />
+    <Compile Include="Problems\EulerProblem11.cs" />
+    <Compile Include="Problems\EulerProblem12.cs" />
+    <Compile Include="Problems\EulerProblem13.cs" />
+    <Compile Include="Problems\EulerProblem14.cs" />
+    <Compile Include="Problems\EulerProblem15.cs" />
+    <Compile Include="Problems\EulerProblem16.cs" />
     <Compile Include="Problems\EulerProblem18.cs" />
     <Compile Include="Problems\EulerProblem19.cs" />
     <Compile Include="Problems\EulerProblem2.cs" />
@@ -98,7 +104,9 @@
     <Compile Include="Problems\EulerProblem46.cs" />
     <Compile Include="Problems\EulerProblem47.cs" />
     <Compile Include="Problems\EulerProblem48.cs" />
+    <Compile Include="Problems\EulerProblem49.cs" />
     <Compile Include="Problems\EulerProblem5.cs" />
+    <Compile Include="Problems\EulerProblem50.cs" />
     <Compile Include="Problems\EulerProblem6.cs" />
     <Compile Include="Problems\EulerProblem67.cs" />
     <Compile Include="Problems\EulerProblem7.cs" />
