@@ -1,3 +1,4 @@
+git add .gitignore;
 git add GitAddEuler.bat;
 git add Euler.sln;
 git add Statistics;
