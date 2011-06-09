@@ -27,7 +27,7 @@ namespace Euler {
 			object solution = (RunMode == RunModes.Solution) ? SolutionResponse : TestResponse;
 
 			RunResponse = new RunResponse(input, response, solution);
-			Console.WriteLine(String.Format("{0}", response));
+			//Console.WriteLine(String.Format("{0}", response));
 
 			//return new RunResponse(input, response, solution);
 		}

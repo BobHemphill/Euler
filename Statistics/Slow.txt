@@ -1,0 +1,53 @@
+*****Start Slow Statistics*****
+Euler.Problems.EulerProblem027
+Too Slow
+1.0.0
+False
+
+Euler.Problems.EulerProblem035
+Too Slow
+1.0.0
+False
+
+Euler.Problems.EulerProblem047
+Too Slow
+1.0.0
+False
+
+Euler.Problems.EulerProblem048
+Too Slow
+1.0.0
+False
+
+Euler.Problems.EulerProblem029
+9183
+0.24.687
+True
+
+Euler.Problems.EulerProblem039
+840
+0.21.203
+True
+
+Euler.Problems.EulerProblem043
+16695334890
+0.18.328
+True
+
+Euler.Problems.EulerProblem024
+2783915460
+0.15.421
+True
+
+Euler.Problems.EulerProblem025
+4782
+0.9.843
+True
+
+Euler.Problems.EulerProblem046
+5777
+0.8.875
+True
+
+
+*****End Slow Statistics*****

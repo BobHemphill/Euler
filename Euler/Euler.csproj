@@ -59,9 +59,11 @@
     <Compile Include="BobsMath\Triangle.cs" />
     <Compile Include="DataStructures\IntegerTree.cs" />
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
-    <Compile Include="EulerProblemEngine.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Utilities\ClearCache.cs" />
+    <Compile Include="Utilities\EulerProblemEngine.cs" />
     <Compile Include="BobsMath\Factorial.cs" />
-    <Compile Include="Problem.cs" />
+    <Compile Include="Common\Problem.cs" />
     <Compile Include="Problems\1-10\EulerProblem001.cs" />
     <Compile Include="Problems\1-10\EulerProblem010.cs" />
     <Compile Include="Problems\11-20\EulerProblem011.cs" />
@@ -115,7 +117,9 @@
     <Compile Include="Problems\1-10\EulerProblem009.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunResponse.cs" />
+    <Compile Include="Common\RunResponse.cs" />
+    <Compile Include="Utilities\FileWriter.cs" />
+    <Compile Include="Utilities\StatisticsWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

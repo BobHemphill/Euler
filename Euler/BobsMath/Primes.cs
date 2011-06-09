@@ -9,12 +9,15 @@ namespace Euler.BobsMath {
 		public static List<long> AllPrimes { get { if (_Primes == null) InitPrimes(); return _Primes; } }
     private const long UPPERLIMIT=1000000;
 
+    public static void Clear(){ if(_Primes!=null) _Primes.Clear(); }
+
 		public static void InitPrimes()
 		{
 			InitPrimes(UPPERLIMIT);
 		}
 
   	public static void InitPrimes(long upperLimit){
+      
       _Primes = new List<long>();
       _Primes.Add(2);
       //long pairLimit = UPPERLIMIT * 10;      

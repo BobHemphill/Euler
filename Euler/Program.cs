@@ -8,8 +8,8 @@ using Euler.BobsMath;
 namespace Euler {
 	class Program {		
 		static void Main(string[] args) {
-			new EulerProblemEngine { Logging = false }.Run(/*new EulerProblem050(),*/ RunModes.Solution);
-			Console.ReadLine();
+			new EulerProblemEngine { Logging = false }.Run(new EulerProblem010(), RunModes.Solution);
+      Console.ReadLine();
 		}							    																	
 	}
 }
