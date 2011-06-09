@@ -1,227 +1,227 @@
 *****Start Correct Statistics*****
 Euler.Problems.EulerProblem001
 233168
-0.0.31
+0.0.3
 True
 
 Euler.Problems.EulerProblem002
 4613732
-0.0.15
+0.0.9
 True
 
 Euler.Problems.EulerProblem003
 6857
-0.1.343
+0.0.592
 True
 
 Euler.Problems.EulerProblem004
 906609
-0.0.546
+0.0.329
 True
 
 Euler.Problems.EulerProblem005
 232792560
-0.0.46
+0.3.908
 True
 
 Euler.Problems.EulerProblem006
 25164150
-0.0.15
+0.0.2
 True
 
 Euler.Problems.EulerProblem007
 104743
-0.1.250
+0.0.577
 True
 
 Euler.Problems.EulerProblem008
 40824
-0.0.171
+0.0.30
 True
 
 Euler.Problems.EulerProblem009
 31875000
-0.0.46
+0.0.3
 True
 
 Euler.Problems.EulerProblem011
 70600674
-0.0.140
+0.0.4
 True
 
 Euler.Problems.EulerProblem012
 76576500
-0.3.62
+0.1.480
 True
 
 Euler.Problems.EulerProblem013
 5537376230
-0.0.15
+0.0.11
 True
 
 Euler.Problems.EulerProblem014
 837799
-0.2.93
+0.0.840
 True
 
 Euler.Problems.EulerProblem015
 137846528820
-0.0.109
+0.0.6
 True
 
 Euler.Problems.EulerProblem016
 1366
-0.0.562
+0.0.268
 True
 
 Euler.Problems.EulerProblem017
 21124
-0.0.15
+0.0.5
 True
 
 Euler.Problems.EulerProblem018
 1074
-0.0.15
+0.0.5
 True
 
 Euler.Problems.EulerProblem019
 171
-0.0.0
+0.0.5
 True
 
 Euler.Problems.EulerProblem020
 648
-0.0.171
+0.0.150
 True
 
 Euler.Problems.EulerProblem021
 31626
-0.0.343
+0.0.303
 True
 
 Euler.Problems.EulerProblem022
 871198282
-0.0.62
+0.0.36
 True
 
 Euler.Problems.EulerProblem023
 4179871
-0.5.156
+0.2.561
 True
 
 Euler.Problems.EulerProblem024
 2783915460
-0.15.421
+0.7.68
 True
 
 Euler.Problems.EulerProblem025
 4782
-0.9.843
+0.3.630
 True
 
 Euler.Problems.EulerProblem026
 983
-0.1.46
+0.0.546
 True
 
 Euler.Problems.EulerProblem028
 669171001
-0.0.0
+0.0.4
 True
 
 Euler.Problems.EulerProblem029
 9183
-0.24.687
+0.12.999
 True
 
 Euler.Problems.EulerProblem030
 443839
-0.4.906
+0.2.168
 True
 
 Euler.Problems.EulerProblem031
 73682
-0.0.171
+0.0.102
 True
 
 Euler.Problems.EulerProblem032
 45228
-0.1.390
+0.0.690
 True
 
 Euler.Problems.EulerProblem033
 100
-0.0.31
+0.0.11
 True
 
 Euler.Problems.EulerProblem034
 40730
-0.3.546
+0.1.751
 True
 
 Euler.Problems.EulerProblem036
 872187
-0.0.453
+0.0.260
 True
 
 Euler.Problems.EulerProblem038
 932718654
-0.0.15
+0.2.114
 True
 
 Euler.Problems.EulerProblem039
 840
-0.21.203
+0.8.188
 True
 
 Euler.Problems.EulerProblem040
 210
-0.0.15
+0.0.2
 True
 
 Euler.Problems.EulerProblem041
 7652413
-0.2.531
+0.1.457
 True
 
 Euler.Problems.EulerProblem042
 162
-0.0.31
+0.0.5
 True
 
 Euler.Problems.EulerProblem043
 16695334890
-0.18.328
+0.9.687
 True
 
 Euler.Problems.EulerProblem044
 5482660
-0.1.218
+0.0.638
 True
 
 Euler.Problems.EulerProblem045
 1533776805
-0.0.31
+0.0.12
 True
 
 Euler.Problems.EulerProblem046
 5777
-0.8.875
+0.6.243
 True
 
 Euler.Problems.EulerProblem049
 296962999629
-0.0.93
+0.0.112
 True
 
 Euler.Problems.EulerProblem050
 997651
-0.5.765
+0.4.117
 True
 
 Euler.Problems.EulerProblem067
 7273
-0.0.15
+0.0.5
 True
 
 

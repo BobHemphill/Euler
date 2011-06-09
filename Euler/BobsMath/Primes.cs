@@ -9,7 +9,10 @@ namespace Euler.BobsMath {
 		public static List<long> AllPrimes { get { if (_Primes == null) InitPrimes(); return _Primes; } }
     private const long UPPERLIMIT=1000000;
 
-    public static void Clear(){ if(_Primes!=null) _Primes.Clear(); }
+    public static void Clear(){ 
+			if(_Primes!=null) _Primes.Clear();
+			UniquePrimeFactorsCache.Clear();
+		}
 
 		public static void InitPrimes()
 		{
@@ -72,24 +75,31 @@ namespace Euler.BobsMath {
 			return _Primes.Sum();
 		}
 
+		private static readonly Dictionary<long, List<long>> UniquePrimeFactorsCache = new Dictionary<long, List<long>>();
     public static IEnumerable<long> UniquePrimeFactors(long number, bool initPrimes = true) {
       if(initPrimes) 
         InitPrimes(number);
 
 			var upperLimit = number;
 			var divisors = new List<long>();
-			if (IsPrime(number)) { divisors.Add(number); return divisors; }
-
-    	foreach (var prime in AllPrimes) {
-				if (prime > upperLimit) break;
-				if (number % prime != 0) continue;
-				divisors.Add(prime);
-				var tempUpperLimit = number / prime;
-				if (tempUpperLimit > prime && IsPrime(tempUpperLimit))
-					divisors.Add(number / prime);
-				upperLimit = tempUpperLimit - 1;
-    	}
-			
+			if (IsPrime(number)) { divisors.Add(number); }
+			else {
+				foreach (var prime in AllPrimes) {
+					if (prime > upperLimit) break;
+					if (number%prime != 0) continue;
+					divisors.Add(prime);
+					var tempUpperLimit = number/prime;
+					if (UniquePrimeFactorsCache.ContainsKey(tempUpperLimit)) {
+						divisors.AddRange(UniquePrimeFactorsCache[tempUpperLimit]);
+						break;
+					}
+					if (tempUpperLimit > prime && IsPrime(tempUpperLimit))
+						divisors.Add(number/prime);
+					upperLimit = tempUpperLimit - 1;
+				}
+			}
+			divisors = divisors.Distinct().ToList();
+    	if (!UniquePrimeFactorsCache.ContainsKey(number)) UniquePrimeFactorsCache.Add(number, divisors); 
 			return divisors;
     }
     
@@ -107,6 +117,7 @@ namespace Euler.BobsMath {
 
 		public static bool IsTruncatable(long number) {
 			var temp = number.ToString();
+			if (temp.Contains("0") || temp.Contains("4") || temp.Contains("6") || temp.Contains("8") || (temp.Contains("2") && !(temp.Count(i=>i=='2')==1 && temp[0]=='2'))) return false;
 			var upperLimit = temp.Length;
 			for (int i = 1; i < upperLimit; i++) {
 				if (!IsPrime(Int64.Parse(temp.Substring(i)))) return false;

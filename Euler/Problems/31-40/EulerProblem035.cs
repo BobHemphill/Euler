@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Euler.DataStructures;
 using Euler.BobsMath;
 
 namespace Euler.Problems {
@@ -16,19 +14,19 @@ namespace Euler.Problems {
     public List<long> CircularPrimes = new List<long>();
     public override object Run(RunModes runMode, object input, bool Logging) {
       Primes.InitPrimes((long)input);
-      var primes = Primes.AllPrimes;
+			var primes = Primes.AllPrimes.Where(p => {
+				var s = p.ToString();
+				return !s.Contains("0") && !s.Contains("2") && !s.Contains("4") &&
+							 !s.Contains("6") && !s.Contains("8");
+			}).ToList();
+			primes.Insert(0, 2);
 
       foreach(long prime in primes){
+				if (CircularPrimes.Contains(prime)) continue;
 				var permutations = Permutations.GenerateRotations(prime).Distinct();
-        var addPrime = true;
-        foreach(var permutation in permutations){
-          if( !Primes.IsPrime(permutation)){
-            addPrime = false;      
-            break;
-          }               
-        }
-        if(addPrime)
-          CircularPrimes.Add(prime);
+        var addPrime = permutations.All(Primes.IsPrime);
+      	if(addPrime)
+					CircularPrimes.AddRange(permutations);
       }
       return CircularPrimes.Count;
     }    

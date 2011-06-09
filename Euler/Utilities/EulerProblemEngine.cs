@@ -27,7 +27,7 @@ namespace Euler {
     private static List<Problem> SlowProblems = new List<Problem> { 
           new EulerProblem027(), new EulerProblem035(), new EulerProblem047(), new EulerProblem048() };
     private static List<Problem> WrongProblems = new List<Problem> { 
-          new EulerProblem010(), new EulerProblem037() };
+          new EulerProblem037() };
 
     public EulerProblemEngine() {
       StatisticsWriter = new StatisticsWriter();
@@ -79,7 +79,7 @@ namespace Euler {
 				var elapsed = DateTime.Now - start;
 				var correct = response.Response != null && response.Solution != null &&
 				              response.Response.Equals(response.Solution);
-        var stat = new Statistics(problemToSolve.GetType(), response.Solution, elapsed, correct);
+        var stat = new Statistics(problemToSolve.GetType(), response.Response, elapsed, correct);
         StatisticsWriter.Add(stat);
 				//if (!batchMode) {
 				  Console.WriteLine(stat);	

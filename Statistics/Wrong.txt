@@ -1,33 +1,3 @@
 *****Start Wrong Statistics*****
-Euler.Problems.EulerProblem010
-142913828922
-0.0.156
-False
-
-Euler.Problems.EulerProblem027
-Too Slow
-1.0.0
-False
-
-Euler.Problems.EulerProblem035
-Too Slow
-1.0.0
-False
-
-Euler.Problems.EulerProblem037
-748317
-0.0.15
-False
-
-Euler.Problems.EulerProblem047
-Too Slow
-1.0.0
-False
-
-Euler.Problems.EulerProblem048
-Too Slow
-1.0.0
-False
-
 
 *****End Wrong Statistics*****

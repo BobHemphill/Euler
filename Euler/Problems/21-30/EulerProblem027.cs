@@ -18,7 +18,7 @@ namespace Euler.Problems {
 			var bPrimes = Primes.AllPrimes;
 			var maxIndex = 0;
 			var maxProduct = new QuadraticCoefficients(0,0);
-			Primes.InitPrimes();
+			Primes.InitPrimes(80 * 80 + 80 * 1000 + 1000);
 			var SquareHash = new Dictionary<int, long>();
 			for (int i = 0; i <= max; i++){
 				SquareHash.Add(i, (long)Math.Pow(i,2));

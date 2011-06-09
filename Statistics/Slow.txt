@@ -21,32 +21,32 @@ False
 
 Euler.Problems.EulerProblem029
 9183
-0.24.687
-True
-
-Euler.Problems.EulerProblem039
-840
-0.21.203
+0.12.999
 True
 
 Euler.Problems.EulerProblem043
 16695334890
-0.18.328
+0.9.687
+True
+
+Euler.Problems.EulerProblem039
+840
+0.8.188
 True
 
 Euler.Problems.EulerProblem024
 2783915460
-0.15.421
-True
-
-Euler.Problems.EulerProblem025
-4782
-0.9.843
+0.7.68
 True
 
 Euler.Problems.EulerProblem046
 5777
-0.8.875
+0.6.243
+True
+
+Euler.Problems.EulerProblem050
+997651
+0.4.117
 True
 
 
