@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Euler.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BobsMath\BigInt.cs" />
+    <Compile Include="BobsMath\Combinations.cs" />
     <Compile Include="BobsMath\Factors.cs" />
     <Compile Include="BobsMath\Fibonacci.cs" />
     <Compile Include="BobsMath\FloatingPointEquals.cs" />
@@ -60,6 +64,7 @@
     <Compile Include="DataStructures\IntegerTree.cs" />
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
     <Compile Include="Common\Enums.cs" />
+    <Compile Include="Problems\51-60\EulerProblem051.cs" />
     <Compile Include="Utilities\ClearCache.cs" />
     <Compile Include="Utilities\EulerProblemEngine.cs" />
     <Compile Include="BobsMath\Factorial.cs" />

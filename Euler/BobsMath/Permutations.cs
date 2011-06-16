@@ -43,5 +43,20 @@ namespace Euler.BobsMath {
 			}
 			return rotations;
 		}
+
+  	
+
+  	public static IEnumerable<long> GenerateReplacements(int replacingDigit, string stringStart, IEnumerable<IEnumerable<int>> indeces) {
+  		var ret = new List<long>();
+  		foreach (var indexList in indeces) {
+  			var temp = stringStart;
+  			foreach (var index in indexList) {
+					temp = temp.Remove(index, 1);
+					temp = temp.Insert(index, replacingDigit.ToString());
+  			}
+				ret.Add(Int64.Parse(temp));
+  		}
+  		return ret;
+  	}
   }
 }
