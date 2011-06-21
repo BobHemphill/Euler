@@ -46,16 +46,19 @@ namespace Euler.BobsMath {
 
   	
 
-  	public static IEnumerable<long> GenerateReplacements(int replacingDigit, string stringStart, IEnumerable<IEnumerable<int>> indeces) {
+  	public static IEnumerable<long> GenerateReplacements(string stringStart, IEnumerable<int> indeces) {
   		var ret = new List<long>();
-  		foreach (var indexList in indeces) {
-  			var temp = stringStart;
-  			foreach (var index in indexList) {
-					temp = temp.Remove(index, 1);
-					temp = temp.Insert(index, replacingDigit.ToString());
-  			}
-				ret.Add(Int64.Parse(temp));
-  		}
+  		var temp = stringStart;
+        for (int replacingDigit = 0; replacingDigit <= 9; replacingDigit++){
+            foreach (var index in indeces){
+                temp = temp.Remove(index, 1);
+                temp = temp.Insert(index, replacingDigit.ToString());
+            }
+            var tempLong = Int64.Parse(temp);
+            if (tempLong.ToString().Length== stringStart.Length && !ret.Contains(tempLong))
+                ret.Add(tempLong);
+        }
+  	      		
   		return ret;
   	}
   }
