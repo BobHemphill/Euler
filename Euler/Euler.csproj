@@ -65,6 +65,8 @@
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Problems\51-60\EulerProblem051.cs" />
+    <Compile Include="Problems\51-60\EulerProblem052.cs" />
+    <Compile Include="Problems\51-60\EulerProblem053.cs" />
     <Compile Include="Utilities\ClearCache.cs" />
     <Compile Include="Utilities\EulerProblemEngine.cs" />
     <Compile Include="BobsMath\Factorial.cs" />
