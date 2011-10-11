@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace Euler.BobsMath {
   public static class LeastCommonMultiple {
-  
-    public static long FromIEnumerable(IEnumerable<int> factors){
-      return factors.Aggregate(1, (lcm, item)=> lcm*item);
+
+		public static BigInteger FromIEnumerable(IEnumerable<BigInteger> factors) {
+      return factors.Aggregate((BigInteger)1, (lcm, item)=> lcm*item);
     }  
     public static long FromPrimeFactorDictionary(Dictionary<long, int> primeFactors) {
       long lcm = 1;
@@ -18,6 +19,10 @@ namespace Euler.BobsMath {
       }
       return lcm;
     }
+
+		public static BigInteger Get(BigInteger a, BigInteger b) {
+			return a*b/GreatestCommonDenominator.Get(a, b);
+		}
 
     public static long FromFirstXIntegers(int upperLimit){
       Primes.InitPrimes(upperLimit + 1);

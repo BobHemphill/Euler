@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Numerics;
 
 namespace Euler.BobsMath {
   public static class Factors {
-    public static IEnumerable<long> GetFactors(long number) {
+		public static IEnumerable<BigInteger> GetFactors(BigInteger number) {
       return GetFactors(number, false);
     }
 
-    public static IEnumerable<long> GetFactors(long number, bool proper) {
+		public static IEnumerable<BigInteger> GetFactors(BigInteger number, bool proper) {
       var upperLimit = number;
-      var divisors = new List<long>();
+			var divisors = new List<BigInteger>();
 
-      for(var i = 1; i <= upperLimit; i++) {
+      for(BigInteger i = 1; i <= upperLimit; i++) {
         if(number % i != 0) continue;
         divisors.Add(i);
         var tempUpperLimit = number / i;
@@ -26,11 +25,11 @@ namespace Euler.BobsMath {
       return divisors;
     }
 
-    public static long SumFactors(long number) {
+		public static BigInteger SumFactors(long number) {
       return SumFactors(number, false);
     }
-    public static long SumFactors(long number, bool proper) {
-      return GetFactors(number, proper).Sum();
+		public static BigInteger SumFactors(long number, bool proper) {
+      return GetFactors(number, proper).Aggregate((BigInteger)0, (current, i)=>i+current);
     }
 
 		public static NumberFactorTypes GetNumberFactorType(long number) {

@@ -39,6 +39,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,29 +48,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BobsMath\BigInt.cs" />
-    <Compile Include="BobsMath\Combinations.cs" />
+    <Compile Include="BobsMath\Stat\Combinations.cs" />
     <Compile Include="BobsMath\Factors.cs" />
     <Compile Include="BobsMath\Fibonacci.cs" />
+    <Compile Include="BobsMath\Figurate\Heptangonal.cs" />
+    <Compile Include="BobsMath\Figurate\Octangonal.cs" />
+    <Compile Include="BobsMath\Figurate\Square.cs" />
     <Compile Include="BobsMath\FloatingPointEquals.cs" />
+    <Compile Include="BobsMath\Fraction.cs" />
     <Compile Include="BobsMath\GreatestCommonDenominator.cs" />
-    <Compile Include="BobsMath\Hexagonal.cs" />
+    <Compile Include="BobsMath\Figurate\Hexagonal.cs" />
     <Compile Include="BobsMath\LeastCommonMultiple.cs" />
     <Compile Include="BobsMath\Palindrome.cs" />
     <Compile Include="BobsMath\Pandigitial.cs" />
     <Compile Include="BobsMath\ParseName.cs" />
-    <Compile Include="BobsMath\Pentagonal.cs" />
-    <Compile Include="BobsMath\Permutations.cs" />
-    <Compile Include="BobsMath\Primes.cs" />
-    <Compile Include="BobsMath\Triangle.cs" />
+    <Compile Include="BobsMath\Figurate\Pentagonal.cs" />
+    <Compile Include="BobsMath\Stat\Permutations.cs" />
+    <Compile Include="BobsMath\Prime\Primes.cs" />
+    <Compile Include="BobsMath\Figurate\Triangle.cs" />
     <Compile Include="DataStructures\IntegerTree.cs" />
     <Compile Include="DataStructures\IntegerTreeNode.cs" />
     <Compile Include="Common\Enums.cs" />
+    <Compile Include="Poker\Card.cs" />
+    <Compile Include="Poker\CardValueConverter.cs" />
+    <Compile Include="Poker\Enums.cs" />
+    <Compile Include="Poker\Hand.cs" />
+    <Compile Include="Poker\Showdown.cs" />
+    <Compile Include="Poker\SuitsConverter.cs" />
     <Compile Include="Problems\51-60\EulerProblem051.cs" />
     <Compile Include="Problems\51-60\EulerProblem052.cs" />
     <Compile Include="Problems\51-60\EulerProblem053.cs" />
+    <Compile Include="Problems\51-60\EulerProblem054.cs" />
+    <Compile Include="Problems\51-60\EulerProblem055.cs" />
+    <Compile Include="Problems\51-60\EulerProblem056.cs" />
+    <Compile Include="Problems\51-60\EulerProblem057.cs" />
+    <Compile Include="Problems\51-60\EulerProblem058.cs" />
+    <Compile Include="Problems\51-60\EulerProblem059.cs" />
+    <Compile Include="Problems\51-60\EulerProblem060.cs" />
+    <Compile Include="Problems\61-70\EulerProblem061.cs" />
+    <Compile Include="Problems\61-70\EulerProblem062.cs" />
     <Compile Include="Utilities\ClearCache.cs" />
     <Compile Include="Utilities\EulerProblemEngine.cs" />
-    <Compile Include="BobsMath\Factorial.cs" />
+    <Compile Include="BobsMath\Stat\Factorial.cs" />
     <Compile Include="Common\Problem.cs" />
     <Compile Include="Problems\1-10\EulerProblem001.cs" />
     <Compile Include="Problems\1-10\EulerProblem010.cs" />
@@ -118,7 +138,7 @@
     <Compile Include="Problems\1-10\EulerProblem005.cs" />
     <Compile Include="Problems\41-50\EulerProblem050.cs" />
     <Compile Include="Problems\1-10\EulerProblem006.cs" />
-    <Compile Include="Problems\EulerProblem067.cs" />
+    <Compile Include="Problems\61-70\EulerProblem067.cs" />
     <Compile Include="Problems\1-10\EulerProblem007.cs" />
     <Compile Include="Problems\1-10\EulerProblem008.cs" />
     <Compile Include="Problems\1-10\EulerProblem009.cs" />
@@ -128,6 +148,7 @@
     <Compile Include="Utilities\FileWriter.cs" />
     <Compile Include="Utilities\StatisticsWriter.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

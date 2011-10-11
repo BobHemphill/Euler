@@ -19,6 +19,10 @@ namespace Euler.Problems {
 					start = (int) Math.Pow(10, start.ToString().Length);
 					continue;
 				}
+				if (!start.ToString().Any(c => c == '5' || c == '0')) {
+					start++;
+					continue;
+				}				
 				if (!Permutations.UniqueDigits(start)) {
 					start++; 
 					continue;

@@ -23,7 +23,9 @@ namespace Euler {
           new EulerProblem036(), new EulerProblem037(), new EulerProblem038(), new EulerProblem039(), new EulerProblem040(),
           new EulerProblem041(), new EulerProblem042(), new EulerProblem043(), new EulerProblem044(), new EulerProblem045(),
 					new EulerProblem046(), new EulerProblem047(), new EulerProblem048(), new EulerProblem049(), new EulerProblem050(),
-					new EulerProblem051(), new EulerProblem052(), new EulerProblem053(),
+					new EulerProblem051(), new EulerProblem052(), new EulerProblem053(), new EulerProblem054(), new EulerProblem055(),
+					new EulerProblem056(), new EulerProblem057(), new EulerProblem058(), new EulerProblem059(), new EulerProblem060(),
+					new EulerProblem061(), new EulerProblem062(),
           new EulerProblem067() };
     private static List<Problem> SlowProblems = new List<Problem> { 
           new EulerProblem027(), new EulerProblem035(), new EulerProblem047(), new EulerProblem048() };

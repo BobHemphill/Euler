@@ -14,7 +14,7 @@ namespace Euler.Problems {
     }
 
     public override object Run(RunModes runMode, object input, bool Logging) {
-      return Factors.GetFactors((long)input).Where(fac=>Primes.IsPrime(fac)).Max();
+      return Factors.GetFactors((long)input).Where(fac=>Primes.IsPrime((long)fac)).Max();
     }
   }  
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Euler.BobsMath;
 
 namespace Euler.Problems {
@@ -27,20 +28,10 @@ namespace Euler.Problems {
 					}
 				}
 			}
-			int numerator = WeirdFractions.Aggregate(1, (product, item) => product * item.Numerator);
-			int denominator = WeirdFractions.Aggregate(1, (product, item) => product * item.Denominator);
-			int gcd = GreatestCommonDenominator.Get(new List<int> { numerator, denominator });
+			var numerator = WeirdFractions.Aggregate((BigInteger)1, (product, item) => product * item.Numerator);
+			var denominator = WeirdFractions.Aggregate((BigInteger)1, (product, item) => product * item.Denominator);
+			var gcd = GreatestCommonDenominator.Get(new List<BigInteger> { numerator, denominator });
 			return denominator / gcd;
 		}
-	}
-
-	public class Fraction {
-		public int Numerator;
-		public int Denominator;
-
-		public Fraction(int numerator, int denominator) {
-			Numerator = numerator;
-			Denominator = denominator;
-		}
-	}
+	}	
 }
